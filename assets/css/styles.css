@@ -1,0 +1,11 @@
+/* Import Styles */
+
+/* General */
+@import './global/reset.css';
+@import './global/general.css';
+
+/* Layouts */
+@import './layouts/articles.css';
+@import './layouts/waves.css';
+@import './layouts/pagination.css';
+@import './layouts/footer.css';

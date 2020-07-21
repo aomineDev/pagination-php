@@ -1,0 +1,50 @@
+/* Wave */
+
+.wave {
+  position: absolute;
+  z-index: -1;
+}
+.wave svg path {
+  fill: #ebf5fc;
+}
+.wave-1 {
+  top: 0;
+  left: -530px;
+  width: 1150px;
+  animation: 8s wave-1 ease infinite;
+}
+@keyframes wave-1 {
+  0% {
+    transform: rotate(135deg) translateX(-42.5%);
+  }
+  50% {
+    transform: rotate(135deg) translateX(29%);
+  }
+  100% {
+    transform: rotate(135deg) translateX(-42.5%);
+  }
+}
+.wave-1 svg {
+  filter: drop-shadow(-4px -4px 6px rgba(255, 255, 255, 1));
+}
+.wave-2 {
+  bottom: 0;
+  right: -370px;
+  width: 800px;
+  transform: rotate(-45deg);
+  animation: 6s wave-2 cubic-bezier(.32,2,.55,.27) infinite;
+}
+@keyframes wave-2 {
+  0% {
+    transform: rotate(-45deg) translateX(-42.5%);
+  }
+  50% {
+    transform: rotate(-45deg) translateX(27%);
+  }
+  100% {
+    transform: rotate(-45deg) translateX(-42.5%);
+  }
+}
+.wave-2 svg {
+  filter: drop-shadow(4px 4px 6px rgba(0, 0, 0, .3));
+}
