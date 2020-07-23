@@ -1,5 +1,5 @@
 <?php
-  require_once './conex.php';
+  require_once 'conex.php';
 
   $page = isset($_GET['page']) ? $_GET['page'] : 1;
   $offset = ($page - 1) * 5;

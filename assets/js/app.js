@@ -25,27 +25,27 @@ async function handleClick (link) {
 		id = activeId + 1
 		node = document.getElementById(id)
 	}
+	
 	if(id === 'prev') {
 		id = activeId - 1
 		node = document.getElementById(id)
 	}
 
+	id = parseInt(id)
+
 	await getArticles(id)
+
 	active.classList.remove('active')
 	node.classList.add('active')
-
-	if (id === 1) prev.classList.add('disable')
-
-	if(id === 4) next.classList.add('disable')
 }
 
 function getArticles (page) {
 	return new Promise(resolve => {
-		const apiUrl = "http://localhost/pagination-php/api/articles.php"
-		fetch(apiUrl + "?page=" + page) 
+		const apiUrl = ''
+		fetch(apiUrl + '?page=' + page) 
 		.then(response => response.json())
 		.then(response => {
-			handleResponse(response)
+			handleResponse(response, page)
 			resolve()
 		})
 		.catch(() => {
@@ -60,9 +60,9 @@ function getArticles (page) {
 	})
 }
 
-function handleResponse (response) {	
+function handleResponse (response, id) {	
 	articles.forEach((article, i) => {
-	  	article.innerHTML = '<span class="article-index">' + response[i].ID + '. </span>' + response[i].lista
+	  article.innerHTML = '<span class="article-index">' + response[i].ID + '. </span>' + response[i].lista
 	})
 
 	articleWrapper.classList.add('loader-1')
@@ -84,5 +84,9 @@ function handleResponse (response) {
 		links.forEach(link => {
 			link.classList.remove('disable')
 		})
+
+		if (id === 1) prev.classList.add('disable')
+
+		if(id === 4) next.classList.add('disable')
 	}, (transition * 2) + 50)
 }

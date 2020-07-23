@@ -1,8 +1,8 @@
 <?php
-	header("Access-Control-Allow-Origin: *");
-	header("Content-Type: application/json; charset=UTF-8");
+	header('Access-Control-Allow-Origin: *');
+	header('Content-Type: application/json; charset=UTF-8');
 
-	require_once './conex.php';				
+	require_once '../conex.php';				
 
 	$articles = [];
 	$page = isset($_GET['page']) ? $_GET['page'] : 1;
